@@ -2,7 +2,7 @@ from datetime import datetime
 series_titles = ["Maximum temperature (Degree C)", "Minimum temperature (Degree C)", "Rainfall amount (millimetres)"]
 
 def mean(in_series):
-    print(in_series)
+    
     valid_values = [x for x in in_series if x is not None]
     return sum(valid_values) / len(valid_values)
 
@@ -14,15 +14,19 @@ def variance(in_series):
     return sum((x - avg) ** 2 for x in valid_values) / len(valid_values)
 
 def standard_deviation(in_series):
-    std_result = variance**0.5
-    return std_result
+    val = variance(in_series)
+    if val is None:
+        return None
+    else:
+        std_result = val ** 0.5
+        return std_result
 
 def filter_series(year_series, month_series, day_series, data_series, max_date=None, min_date=None):
     pass
 
 def range_(in_series):
     range_sort = list(sorted(in_series))
-    range_result = range_sort[0] - range_sort[-1]
+    range_result = range_sort[-1] - range_sort[0]
     return range_result
 
 def read_csv(file,default_value=None):
