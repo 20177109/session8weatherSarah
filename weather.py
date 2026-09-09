@@ -2,10 +2,16 @@ from datetime import datetime
 series_titles = ["Maximum temperature (Degree C)", "Minimum temperature (Degree C)", "Rainfall amount (millimetres)"]
 
 def mean(in_series):
-    pass
+    print(in_series)
+    valid_values = [x for x in in_series if x is not None]
+    return sum(valid_values) / len(valid_values)
 
 def variance(in_series):
-    pass
+    valid_values = [x for x in in_series if x is not None]
+    if len(valid_values) == 0:
+        return None
+    avg = mean(valid_values)
+    return sum((x - avg) ** 2 for x in valid_values) / len(valid_values)
 
 def standard_deviation(in_series):
     std_result = variance**0.5
