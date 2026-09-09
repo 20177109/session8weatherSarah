@@ -11,6 +11,12 @@ repo. That person should put a copy of the skeleton code and data into a new rep
 Everyone else should take a fork and begin working on their assigned feature. The
 owner should work in a feature branch so that all changes will be merged by pull
 request. 
+### Git instructions (above) a bit much?
+As an alternative, someone should create a repo and add the files.
+Then, they can invite the other team members to collaborate in
+the project settings. **It's recommended to develop on branches!**
+Branches will keep your code merging tidier and reduce the odds
+of losing work.
 
 Issue one pull request per feature! Try developing the first 3 items in parallel,
 but use the code your team has yet to complete: variance should reuse the mean
@@ -20,10 +26,11 @@ problem.
 
 The features to be implemented are:
 1. Implement a mean calculation
-2. Implement a variance calculation
-3. Implement a standard deviation
+2. Implement a variance calculation (use the above mean function, even if it's not written yet!)
+3. Implement a standard deviation (use the above std.dev function, even if it's not written yet!)
 4. Implement a range calculation
 5. Implement an interquartile range calculation
+##### Text menu changes below!
 6. Extend the menu to collect a date range from the user (if desired)
 7. Extend the menu to collect a desired statistical calculation
 8. Extend the menu to answer the user's questions until they choose to quit
