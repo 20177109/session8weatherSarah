@@ -1,5 +1,7 @@
 import statistics
 from datetime import datetime
+
+
 series_titles = ["Maximum temperature (Degree C)", "Minimum temperature (Degree C)", "Rainfall amount (millimetres)"]
 
 def mean(in_series):
@@ -52,9 +54,10 @@ def interquartile_range(in_series):
     return q3 - q1
 
 def range_(in_series):
-    range_sort = list(sorted(in_series))
-    range_result = range_sort[0] - range_sort[-1]
-    return range_result
+    data = sorted([x for x in in_series if x is not None])
+    if len(data) == 0:
+        return None
+    return data[-1] - data[0]
 
 def read_csv(file,default_value=None):
     data_table = {}
@@ -87,7 +90,8 @@ def menu(data_table):
         f"Mean: {mean(data)}, "
         f"Variance: {variance(data)}, "
         f"Standard Deviation: {standard_deviation(data)}, "
-        f"Interquartile Range: {interquartile_range(data)}"
+        f"Interquartile Range: {interquartile_range(data)}, "
+        f"Range: {range_(data)}"
 )
 
 if __name__ == "__main__":
