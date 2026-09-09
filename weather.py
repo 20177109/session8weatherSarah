@@ -1,3 +1,4 @@
+import statistics
 from datetime import datetime
 series_titles = ["Maximum temperature (Degree C)", "Minimum temperature (Degree C)", "Rainfall amount (millimetres)"]
 
@@ -35,7 +36,7 @@ def filter_series(year_series, month_series, day_series, data_series, max_date=N
     return filtered
 
 def interquartile_range(in_series):
-    data = sorted(in_series)
+    data = sorted([x for x in in_series if x is not None])
     mid = len(data) // 2
 
     if len(data) % 2 == 0:
@@ -82,7 +83,12 @@ def menu(data_table):
     print("Select a data series:")
     choice = get_user_choice(series_titles)
     data = data_table[choice]
-    print(f"Mean: {mean(data)}, Variance: {variance(data)}, Standard Deviation: {standard_deviation(data)}")
+    print(
+        f"Mean: {mean(data)}, "
+        f"Variance: {variance(data)}, "
+        f"Standard Deviation: {standard_deviation(data)}, "
+        f"Interquartile Range: {interquartile_range(data)}"
+)
 
 if __name__ == "__main__":
     data = read_csv('weather.csv')
