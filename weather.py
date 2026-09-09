@@ -51,8 +51,10 @@ def get_user_choice(options):
 def menu(data_table):
     print("Select a data series:")
     choice = get_user_choice(series_titles)
-    series = data_table[choice]
-    print(f"Mean: {mean(data_table[choice])}")
+
+    data = data_table[choice]
+
+    print(f"Mean: {mean(data)}, Variance: {variance(data)}")
 
 if __name__ == "__main__":
     data = read_csv('weather.csv')
