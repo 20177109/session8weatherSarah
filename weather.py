@@ -9,7 +9,7 @@ def variance(in_series):
 
 def standard_deviation(in_series):
     std_result = variance**0.5
-        return std_result
+    return std_result
 
 def filter_series(year_series, month_series, day_series, data_series, max_date=None, min_date=None):
     pass
