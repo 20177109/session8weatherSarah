@@ -1,8 +1,11 @@
+from datetime import datetime
 
 series_titles = ["Maximum temperature (Degree C)", "Minimum temperature (Degree C)", "Rainfall amount (millimetres)"]
 
 def mean(in_series):
-    return sum(in_series) / len(in_series)
+    print(in_series)
+    valid_values = [x for x in in_series if x is not None]
+    return sum(valid_values) / len(valid_values)
 
 def variance(in_series):
     pass
